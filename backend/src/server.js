@@ -7,7 +7,7 @@ import fs from 'fs'
 import path from 'path'
 import job from './lib/cron.js'
 import clerkWebhook from './webhooks/clerk.webhook.js'
-
+import authRoutes from './routes/auth.route.js'
 
 dotenv.config()
 const app= express()
@@ -27,6 +27,8 @@ app.use(clerkMiddleware())
 app.get("/health", (req,res)=>{
     res.status(200).json({message: "server is running"});
 })
+
+app.use("/api/auth", authRoutes)
 
 // production build
 if (fs.existsSync(publicDir)) {
