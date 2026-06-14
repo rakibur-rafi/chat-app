@@ -15,11 +15,9 @@ app.use(cors({origin: FRONTEND_URL, credentials: true}));
 app.use(clerkMiddleware())
 
 app.get("/health", (req,res)=>{
-    res.status(200).json({message: "server is healthy"});
+    res.status(200).json({message: "server is running"});
 })
-
-
-
+ 
 app.listen(PORT,()=>{
     connectDB();
     console.log("server is running on port",PORT);
