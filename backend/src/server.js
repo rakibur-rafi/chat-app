@@ -28,7 +28,7 @@ app.get("/health", (req,res)=>{
     res.status(200).json({message: "server is running"});
 })
 
-app.use("/api/auth", authRoutes)
+app.use("/api/auth", authRoutes);
 
 // production build
 if (fs.existsSync(publicDir)) {
